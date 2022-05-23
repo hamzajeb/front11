@@ -75,6 +75,10 @@ export class Service1Service {
     return localStorage.getItem('date') || "";
   }
 
+  getId() {
+    return localStorage.getItem('id') || "";
+  }
+
 
   logOut() {
     return localStorage.clear();

@@ -138,3 +138,38 @@
     opacity: 1;
     top: -60px;
 }
+
+.notify {
+    /* transform-origin: 50% 180px; */
+    animation: ring 5s ease;
+  }
+  
+  @keyframes ring {
+    0% {
+        font-size: 30px
+    }
+    12.5% {
+        transform: translate(4vw,-45vh);
+        font-size: 70px
+    }
+    25% {
+        font-size: 80px
+    }
+    37.5% {
+        font-size: 95px
+    }
+    50% {
+        font-size: 360px
+    }
+    62.5% {
+        font-size: 320px
+    }
+    75% {
+        font-size: 30px;
+    }
+  
+    100% {
+        font-size: 30px;
+    }
+  }
+  

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Service1Service } from './../../service1.service';
+import { ProduitsService } from './../../services/produits/produits.service';
 import { Router } from '@angular/router';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { TestComponent} from './../../test/test.component';
@@ -11,6 +12,8 @@ import { CategoriesService } from 'src/app/services/categories/categories.servic
   styleUrls: ['./nav-bar.component.css']
 })
 export class NavBarComponent implements OnInit {
+  nbrFavorite=0
+  x2:any
   login:any;
   profile:any
   search: String = ""
@@ -18,12 +21,25 @@ export class NavBarComponent implements OnInit {
   durationInSeconds = 5;
   listeCategories: any[] = []
   listeSousCategories: any[] = []
-  constructor(private service1Service:Service1Service,private router: Router,private _snackBar: MatSnackBar,private categoriesService: CategoriesService) {
+  constructor(private produitsService:ProduitsService,private service1Service:Service1Service,private router: Router,private _snackBar: MatSnackBar,private categoriesService: CategoriesService) {
    }
 
   ngOnInit(): void {
     this.Affichercategories();
     this.AfficherSousCategories();
+    // this._Activatedroute.queryParams.subscribe(queryParams => {
+    //   // let id=this._Activatedroute.snapshot.paramMap.get("id");
+    //   // this.id=id
+    //   });
+    //   this._Activatedroute.params.subscribe(routeParams => {
+    //       let id=this._Activatedroute.snapshot.paramMap.get("id");
+    //   this.id=id
+    //   this.test=true
+    //   this.afficherProduits(this.id)
+    //   this.style1=true
+    //   this.produits()
+    //   });
+    this.getFavUser()
   }
 
   testconnexion(){
@@ -73,4 +89,23 @@ export class NavBarComponent implements OnInit {
     }
   }
 
+
+  id1:any
+  listeFavUser : any[] = []
+  getFavUser(){
+    this.id1=this.service1Service.getId()
+    this.produitsService.getFavoritesUser(this.id1).subscribe((user: any) => {
+      this.listeFavUser= user.fav;
+      this.nbrFavorite=this.listeFavUser.length;
+      console.log("hhh"+this.nbrFavorite);
+   });
+   return this.nbrFavorite
+  }
+  x(){
+    return this.nbrFavorite+this.produitsService.p
+  }
+  r:any
+  j(){
+    this.produitsService.p=0
+  }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit,ViewChild , ElementRef } from '@angular/core';
 import { Service1Service } from './../service1.service';
+import { ProduitsService } from './../services/produits/produits.service';
 import { FormControl, FormGroup,Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
@@ -31,7 +32,7 @@ export class LoginComponent implements OnInit {
 
 
   
-  constructor(public dialog: MatDialog,private service1Service:Service1Service,private router: Router) {
+  constructor(public dialog: MatDialog,private service1Service:Service1Service,private produitsService:ProduitsService,private router: Router) {
     this.jj=this.service1Service.focus2
     console.log(this.jj)
     this.j=this.service1Service.focus1
@@ -46,7 +47,7 @@ export class LoginComponent implements OnInit {
     // this.isFocus=1
     this.service1Service.focus2=0;
     localStorage.clear();
-    
+    this.produitsService.p=0
   }
   hide = true;
   isFocus:any;
@@ -66,17 +67,21 @@ export class LoginComponent implements OnInit {
         if(this.responseData.sanctumToken!=null){
         localStorage.setItem('sanctumToken',this.responseData.sanctumToken);
         localStorage.setItem('nom',this.responseData.user.nom);
+        localStorage.setItem('id',this.responseData.user.id);
         localStorage.setItem('prenom',this.responseData.user.prenom);
         localStorage.setItem('email',this.responseData.user.email);
         localStorage.setItem('profil',this.responseData.user.is_admin);
         localStorage.setItem('ville',this.responseData.user.ville);
         localStorage.setItem('telephone',this.responseData.user.telephone);
         localStorage.setItem('date',this.responseData.user.created_at);
-        // this.service1Service.dialog1("Salut! "+this.responseData.user.prenom +" , Votre étes connectes.","ACHETER MAINTENANT","login");
-        this.router.navigate(['homeAdmin']);
+        if(this.responseData.user.is_admin==0){
+        this.service1Service.dialog1("Salut! "+this.responseData.user.prenom +" , Votre étes connectes.","ACHETER MAINTENANT","");
+        this.openDialog();
+        // this.router.navigate(['homeAdmin']);
+        }else{
+          this.router.navigate(['homeAdmin']);
+        }
         
-
-        //this.openDialog();
         }else{
           this.message=this.responseData.message;
         }

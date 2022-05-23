@@ -1,0 +1,29 @@
+.example-card {
+    max-width: 400px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
+  .card{
+    transition: all .2s ease-in-out;
+    border-radius: 4px;
+}
+.card-main{
+    position: relative;
+}
+
+.button1{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform:translate(-50%,-50%);
+    font-size: x-large;
+    font-family: 'Oleo Script Swash Caps';
+    opacity:0;
+}
+
+.card:hover .button1{
+    opacity: 1;
+}

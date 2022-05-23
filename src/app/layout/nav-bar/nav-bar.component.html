@@ -55,12 +55,16 @@
                             
                         </a>
 
-                        <a href="#" class="action" >
-                            <mat-icon class="black-icon" matBadge="0" matBadgeColor="warn">favorite_border</mat-icon>
+                        <a   class="action" >
+                            <mat-icon  *ngIf="testconnexion()==false,else second" class="black-icon" matBadge=0 matBadgeColor="warn">favorite_border</mat-icon>
+                            <ng-template #second>
+                                <mat-icon (click)="j()"  class="black-icon" matBadge={{x()}} [routerLink]="['/favoris']" matBadgeColor="warn">favorite_border</mat-icon>
+                            </ng-template>
+                            
                             
                         </a>
 
-                        <a href="#" class="action">
+                        <a class="action">
                             <mat-icon class="black-icon" matBadge="0" matBadgeColor="warn">shopping_cart</mat-icon>
                            
                         </a>

@@ -14,6 +14,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CategorieComponent } from './admin/categorie/categorie.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { FavorisComponent } from './favoris/favoris.component';
 
 import { SousCategorieComponent } from './admin/sous-categorie/sous-categorie.component';
 import { CardComponent } from './admin/card/card.component';
@@ -43,6 +44,7 @@ const routes: Routes = [
   {path:"Souscategorie", component:SousCategorieComponent},
   {path:"card", component:CardComponent},
   {path:"articleComponent/:id",component:ArticleComponent},
+  {path:"favoris",component:FavorisComponent},
 
 ];
 

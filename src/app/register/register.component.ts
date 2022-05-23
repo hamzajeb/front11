@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ProduitsService } from './../services/produits/produits.service';
 import {FormGroup, FormControl,FormBuilder} from '@angular/forms' 
 import { Utilisateur } from '../utilisateur.model';
 import {DialogComponent} from '../dialog/dialog.component'
@@ -71,9 +72,9 @@ export class RegisterComponent implements OnInit {
     'Wisconsin',
     'Wyoming',
   ];
-  constructor(public dialog: MatDialog,private service1Service:Service1Service,private router: Router) { 
+  constructor(private produitsService:ProduitsService,public dialog: MatDialog,private service1Service:Service1Service,private router: Router) { 
     this.showDetails=false;
-
+    this.produitsService.p=0
   }
 
   ngOnInit(): void {

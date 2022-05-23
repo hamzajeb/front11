@@ -49,6 +49,8 @@ import { ModalModule, BsModalRef } from 'ngx-bootstrap/modal';
 import { DialogueAjouterPrComponent } from './admin/dialogue-ajouter-pr/dialogue-ajouter-pr.component';
 import { DialogueModifierPrComponent } from './admin/dialogue-modifier-pr/dialogue-modifier-pr.component';
 import { ArticleComponent } from './article/article.component';
+import { FavorisComponent } from './favoris/favoris.component';
+
 
 
 
@@ -82,6 +84,8 @@ const appRoutes:Routes=[
     DialogueAjouterPrComponent,
     DialogueModifierPrComponent,
     ArticleComponent,
+    FavorisComponent,
+
    
   
 
