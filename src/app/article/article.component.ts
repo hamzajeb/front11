@@ -25,6 +25,7 @@ export class ArticleComponent implements OnInit {
   constructor(private router: Router,private produitsService:ProduitsService,private _Activatedroute:ActivatedRoute,private sousCategoriesService:SousCategoriesService ,private service1Service:Service1Service ) { 
     // this.url=this.imageDirectorypath+this.listeProduit;
     this.produitsService.p=0
+    this.produitsService.q=0
   }
 
   ngOnInit(): void {
@@ -45,11 +46,20 @@ export class ArticleComponent implements OnInit {
     });
     this.ratingArr=Array(5).fill(false);//initialiser
   }
-
+  r:any
+  j:any
   afficherProduits(id:any){
+    this.j=0
     this.sousCategoriesService.SousCategorieProduit(id).subscribe((souscategories: any) => {
       this.sousCat = souscategories;
-      this.listeProduit=souscategories.produit;
+      this.r=souscategories.produit;
+      this.listeProduit=[]
+      for(let i=0;i<this.r.length;i++){
+        if(this.r[i].is_promo==0){
+          this.listeProduit[this.j]=this.r[i]
+          this.j=this.j+1
+        }
+      }
       console.log(this.sousCat)
       console.log(this.listeProduit)
    });

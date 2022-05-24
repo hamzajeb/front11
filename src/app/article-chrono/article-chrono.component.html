@@ -1,0 +1,93 @@
+<app-nav-bar></app-nav-bar>
+<br>
+<mat-grid-list cols="3" rowHeight="800px" [gutterSize]="'20px'" style="margin-top: 30vh;">
+    <mat-grid-tile id={{Produit.id}} *ngFor="let Produit of listeProduitsPromo">
+        <!-- <div style="margin:0 35vw;margin-bottom: 200px;"> -->
+            <mat-card class="card"  style="width: 25vw ;">
+            
+                
+                <mat-card-content class="card-main" style="height: 70vh;">
+                  <p class="discount">{{Produit.pourcentage}} %</p>
+                  <div style="position: absolute;top:9vh;left:-4vw">
+                    <ul >
+                        <li style="background: rgba(255, 255, 255, 0.4)    ;padding: 20px;text-align:center ;border:1px solid black;">
+                            <span class="count-date" style="font-size: 30px;font-weight:bold;font-family: 'Lobster', cursive;">{{Produit.days}}</span>
+                            <br>
+                            <span class="count-day" style="font-family: 'Lobster', cursive;">Jours</span>
+                        </li>
+                        <br>
+                        <!-- <mat-divider></mat-divider> -->
+                        <li style="background: rgba(255, 255, 255, 0.4);padding: 20px;text-align:center ;border:1px solid black">
+                            <span class="count-date" style="font-size: 30px;font-weight:bold;font-family: 'Lobster', cursive;">{{Produit.hours}}</span>
+                            <br>
+                            <span class="count-day" style="font-family: 'Lobster', cursive;">Heurs</span>
+                        </li>
+                        <br>
+                        <li style="background: rgba(255, 255, 255, 0.4);padding: 20px;text-align:center ;border:1px solid black">
+                            <span class="count-date" style="font-size: 30px;font-weight:bold;font-family: 'Lobster', cursive;">{{Produit.min}}</span>
+                            <br>
+                            <span class="count-day" style="font-family: 'Lobster', cursive;">Minutes</span>
+                        </li>
+                        <br>
+                        <li style="background: rgba(255, 255, 255, 0.4);padding: 20px;text-align:center ;border:1px solid black">
+                            <span class="count-date" style="font-size: 30px;font-weight:bold;font-family: 'Lobster', cursive;">{{Produit.sec}}</span>
+                            <br>
+                            <span class="count-day" style="font-family: 'Lobster', cursive;">seconds</span>
+                        </li>
+                    </ul>
+                </div>
+                  <div class="product-container">
+                        <div class="p"  (mouseover)="changImage($event,Produit)"><img  src="{{imageDirectorypath}}{{Produit.image1}}" ></div>
+                        <div class="p"  (mouseover)="changImage($event,Produit)"><img  src="{{imageDirectorypath}}{{Produit.image2}}"></div>
+                        <div class="p"  (mouseover)="changImage($event,Produit)"><img  src="{{imageDirectorypath}}{{Produit.image3}}" ></div>
+                  </div>
+                  <div class="image" >
+                      <img mat-card-image  *ngIf="test==true;else x" src="{{imageDirectorypath}}{{Produit.image1}}" style="height: 70vh;object-fit: cover;object-position: center top;">
+                      <ng-template #x>
+                        <img mat-card-image *ngIf="Produit.chrono_hour==0;else x1"  src="{{imageDirectorypath}}{{Produit.image1}}" style="height: 70vh;object-fit: cover;object-position: center top;">
+                      </ng-template>
+                      <ng-template #x1>
+                        <img mat-card-image  src="{{Produit.chrono_hour}}" style="height: 70vh;object-fit: cover;object-position: center top;">
+                      </ng-template>
+                      
+                  </div>
+
+                </mat-card-content>
+                <mat-card-actions >
+                    <div class="x" style="text-align:center;font-family: 'Lobster', cursive;font-size: 25px;">{{Produit.nom}}</div>
+                    <br>
+                    <p style="text-align:center;font-size: 14px;">{{Produit.detail}}</p>
+                    <div style="text-align: center;">
+                      <button mat-icon-button style="color: gold;"  *ngFor="let r of ratingArr;index as i" (click)="onClick(i,Produit.chrono_h)">
+                        <mat-icon>{{returnStar(i,Produit.chrono_h)}}</mat-icon>
+                      </button>
+                    </div>
+                    <br>
+                    <div style="text-align: center;">
+                    <p style="display:inline-block;text-align:center;font-weight: bold;font-style: italic;font-size: 22px;color:rgb(21, 210, 21);margin-right: 10px;" >{{Produit.nouveauPrix}} MAD</p>
+                    <p style="display:inline-block;text-align:center;font-style: italic;font-size: 15px;text-decoration: line-through;">{{Produit.prix}} MAD</p>
+                    </div>
+                    <!-- <div>{{rating}}</div> -->
+                </mat-card-actions>
+              </mat-card>
+              
+            <!-- </div> -->
+
+    </mat-grid-tile>
+  </mat-grid-list>
+
+
+  <!-- listeProduitsCr(){
+    this.produitsService.listeProduit().subscribe((res:any)=>{
+      this.j=0
+      this.Produits=res
+      console.log(this.Produits)
+      this.listeProduitsPromo=[]
+      for(let i=0;i<this.Produits.length;i++){
+        if(this.Produits[i].is_promo==1){
+          this.listeProduitsPromo[this.j]=this.Produits[i]
+          this.j=this.j+1
+        }
+      }
+      console.log( this.listeProduitsPromo)
+    }); -->

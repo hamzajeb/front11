@@ -1,0 +1,26 @@
+<div style="width:20vw ;padding:3vw" >
+    <p style="text-align:left;font-family: 'Oleo Script Swash Caps';font-size: 30px">Promo</p>
+    <mat-divider></mat-divider>
+    <form [formGroup]="ajout" (ngSubmit)="ajouterPromo()">
+          <br>
+          <mat-form-field style="width: 100%;">
+            <input style="font-size: 15px;"  matInput [ngxMatDatetimePicker]="picker" placeholder="Date et Heure de fin du promo" formControlName="date_chrono"  [(ngModel)]="promo.date_chrono" name="date">
+            
+            <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+        
+            <ngx-mat-datetime-picker #picker></ngx-mat-datetime-picker>
+        </mat-form-field>
+        <br>
+        <br>
+        <p style="font-weight: bold;">pourcentage du promotion (%) :</p>
+        <mat-slider style="width: 100%;" color="primary" thumbLabel [displayWith]="formatLabel" tickInterval="1000" formControlName="pourcentage"  [(ngModel)]="promo.pourcentage" name="pr"
+         step="1" min="0" max="100" aria-label="units"></mat-slider>
+         <br>
+         <br>         
+        <div style="text-align: right;">
+         <button mat-raised-button  type="submit" >Ajouter</button>
+          <!-- <button (click)="x()">click</button> -->
+          <button mat-raised-button mat-dialog-close style="margin-left: 2vw;">fermer</button>
+        </div>
+    </form>
+    <br>

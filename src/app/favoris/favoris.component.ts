@@ -41,7 +41,7 @@ export class FavorisComponent implements OnInit {
           this.listeFavUserPr=[]
           for(let i=0;i<this.listeFavUser.length;i++){
             for(let j=0;j<this.listePro.length;j++){
-              if(this.listeFavUser[i].produit_id==this.listePro[j].id){
+              if(this.listeFavUser[i].produit_id==this.listePro[j].id ){
                 this.listeFavUserPr[i]=this.listePro[j]
                 
               }

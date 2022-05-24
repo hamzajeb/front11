@@ -24,6 +24,34 @@
     opacity:0;
 }
 
+.promo{
+  position: absolute;
+  top: 30px;
+  left: -15px;
+  /* transform:translate(-50%,-50%); */
+  font-size: large;
+  font-family: 'Oleo Script Swash Caps';
+  border-radius:0 8px 8px 0 ;
+  background-image: linear-gradient(
+    to right,
+    #462523 0,
+           #cb9b51 22%, 
+    #f6e27a 45%,
+    #f6f2c0 50%,
+    #f6e27a 55%,
+    #cb9b51 78%,
+    #462523 100%
+    );
+
+
+    text-align: center;
+
+    height: 40px;
+    width: 90px;
+    border-radius: 0 15px 15px 0;
+    line-height: 30px;
+}
+
 .card:hover .button1{
     opacity: 1;
 }

@@ -64,4 +64,13 @@ export class ProduitsService {
       this.p=this.p-1
     }
   }
+  q=0
+
+  y(){
+    this.q=this.q-1
+  }
+
+  ajouterPromo(id:any,data:any){
+    return this.httpClient.post('http://127.0.0.1:8000/api/ajouterPromo/'+id,data)
+  }
 }

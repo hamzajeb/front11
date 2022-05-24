@@ -15,9 +15,11 @@ import { HomeAdminComponent } from './admin/home-admin/home-admin.component';
 import { CategorieComponent } from './admin/categorie/categorie.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { FavorisComponent } from './favoris/favoris.component';
+import { ArticleChronoComponent } from './article-chrono/article-chrono.component';
 
 import { SousCategorieComponent } from './admin/sous-categorie/sous-categorie.component';
 import { CardComponent } from './admin/card/card.component';
+import { ChronoComponent } from './admin/chrono/chrono.component';
 import { AuthGuard } from './auth.guard';
 
 
@@ -45,6 +47,9 @@ const routes: Routes = [
   {path:"card", component:CardComponent},
   {path:"articleComponent/:id",component:ArticleComponent},
   {path:"favoris",component:FavorisComponent},
+  {path:"chrono",component:ChronoComponent},
+  {path:"articlechrono",component:ArticleChronoComponent},
+  
 
 ];
 

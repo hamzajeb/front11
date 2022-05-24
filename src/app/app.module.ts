@@ -50,8 +50,18 @@ import { DialogueAjouterPrComponent } from './admin/dialogue-ajouter-pr/dialogue
 import { DialogueModifierPrComponent } from './admin/dialogue-modifier-pr/dialogue-modifier-pr.component';
 import { ArticleComponent } from './article/article.component';
 import { FavorisComponent } from './favoris/favoris.component';
+import { ChronoComponent } from './admin/chrono/chrono.component';
+import { DialogueAjouterChronoComponent } from './admin/dialogue-ajouter-chrono/dialogue-ajouter-chrono.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatSliderModule} from '@angular/material/slider';
 
-
+import {
+  NgxMatDatetimePickerModule,
+  NgxMatNativeDateModule,
+  NgxMatTimepickerModule
+} from '@angular-material-components/datetime-picker';
+import {NgxMaterialTimepickerModule} from 'ngx-material-timepicker';
+import { ArticleChronoComponent } from './article-chrono/article-chrono.component';
 
 
 
@@ -85,6 +95,9 @@ const appRoutes:Routes=[
     DialogueModifierPrComponent,
     ArticleComponent,
     FavorisComponent,
+    ChronoComponent,
+    DialogueAjouterChronoComponent,
+    ArticleChronoComponent,
 
    
   
@@ -124,9 +137,14 @@ const appRoutes:Routes=[
     MatSidenavModule,
     MatToolbarModule,
     FlexLayoutModule,
+    MatDatepickerModule,
     ToastrModule.forRoot(),
-    ModalModule.forRoot()
-    
+    ModalModule.forRoot(),
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatNativeDateModule,
+    NgxMaterialTimepickerModule,
+    MatSliderModule
 
 
 

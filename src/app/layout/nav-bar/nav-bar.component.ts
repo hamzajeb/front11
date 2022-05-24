@@ -39,7 +39,10 @@ export class NavBarComponent implements OnInit {
     //   this.style1=true
     //   this.produits()
     //   });
+    if(this.testconnexion()==true){
     this.getFavUser()
+    }
+    this.getnbrChrono()
   }
 
   testconnexion(){
@@ -102,10 +105,50 @@ export class NavBarComponent implements OnInit {
    return this.nbrFavorite
   }
   x(){
-    return this.nbrFavorite+this.produitsService.p
+    if(this.produitsService.p==0){
+      // this.ss=this.lenghtPromo+this.produitsService.q
+         return this.nbrFavorite
+      }else{
+        return this.nbrFavorite+this.produitsService.p
+      }
   }
   r:any
   j(){
     this.produitsService.p=0
   }
+// ---------------------------
+  listeProduitsPromo:any []=[]
+  lenghtPromo:any
+  s:any
+  Produits:any
+  getnbrChrono(){
+    this.produitsService.listeProduit().subscribe((res:any)=>{
+      this.s=0
+      this.Produits=res
+      console.log(this.Produits)
+      this.listeProduitsPromo=[]
+      for(let i=0;i<this.Produits.length;i++){
+        if(this.Produits[i].is_promo==1){
+          this.listeProduitsPromo[this.s]=this.Produits[i]
+          this.s=this.s+1
+        }
+      }
+      this.lenghtPromo=this.listeProduitsPromo.length
+      console.log( this.lenghtPromo)
+    });
+    return this.lenghtPromo
+  }
+
+  y(){
+    if(this.produitsService.q==0){
+    // this.ss=this.lenghtPromo+this.produitsService.q
+       return this.lenghtPromo
+    }else{
+      return this.lenghtPromo+this.produitsService.q
+    }
+  }
+
+  // j(){
+  //   this.produitsService.p=0
+  // }
 }

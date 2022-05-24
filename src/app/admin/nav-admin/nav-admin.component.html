@@ -55,5 +55,14 @@
             </a>
 
         </li>
+        <li class="sidenav-nav-item" [routerLink]="['/chrono']" routerLinkActive="router-link-active" >
+            <a class="sidenav-nav-link" routerLinkActive="active">
+
+                <mat-icon class="sidenav-link-icon">timer</mat-icon>
+                <span class="sidenav-link-text" *ngIf="collapsed">Promos
+                </span>
+            </a>
+
+        </li>
     </ul>
 </div>

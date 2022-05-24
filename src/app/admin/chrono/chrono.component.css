@@ -1,0 +1,14 @@
+table {
+    width: 80vw;
+    margin-left: 13vw;
+    margin-bottom: 10vh;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 80vw;
+    margin-left: 13vw;
+  }
+.x{
+  border: 0;
+}
